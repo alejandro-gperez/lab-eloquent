@@ -6,5 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Submission extends Model
 {
-    //
+    protected $fillable = ['assignment_id', 'student_id', 'content'];
+
+    public function assignment()
+    {
+        return $this->belongsTo(Assignment::class);
+    }
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
+
+    public function grade()
+    {
+        return $this->hasOne(Grade::class);
+    }
 }
