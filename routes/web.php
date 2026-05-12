@@ -14,8 +14,8 @@ Route::get('/q1', function () {
 
 Route::get('/q2', function () {
     return Course::withCount('students')
-        ->having('students_count', '>', 5)
-        ->get();
+        ->get()
+        ->where('students_count', '>', 5);
 });
 
 Route::get('/q3', function () {
